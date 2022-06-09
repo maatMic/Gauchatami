@@ -14,7 +14,7 @@ public class Gauchatami {
     int id;
 //    int id_proprietaire; à implémenter lors du basculement en mode multi
 
-    enum state {
+    enum State {
         egg, larva, atami, dead
     };
     int hunger;
@@ -23,7 +23,9 @@ public class Gauchatami {
     int dirt;
     int health;
     boolean cryes;
+    State currentState;
     Taste tastes;
+    
 
     public Gauchatami(String name, int id, int hunger, int tiredness, int boredom, int dirt, int health, boolean cryes, Taste tastes) {
         this.name = name;
@@ -35,15 +37,23 @@ public class Gauchatami {
         this.health = health;
         this.cryes = cryes;
         this.tastes = tastes;
+        this.currentState = State.egg;
     }
 
     public Gauchatami() {
     }
 
     //////////////
- /*   public void eat(Food food){
-        for()
-    }*/
+    public String eat(Food food){
+        if (currentState.equals("atami") && tastes.getTasteList().get(food.name) < 33) {
+            food.stock --;
+            return name + " déteste cet aliment, et refuse de le manger. Quel gaspillage!";
+        }
+        food.stock --;
+        hunger -= food.nutritional_value;
+        tastes.tasteList.put(food.name, tastes.getTasteList().get(food.name) + 1);
+        return name + " se régale, et vous regarde avec des yeux pleins d'amour";
+    }
     //////////////
     
     
