@@ -67,8 +67,13 @@ public class Gauchatami {
         return "A trop se gaver, " + name + " s'est rendu malade, et a rendu le contenu de son estomac à vos pieds.";
     }
     
-    public void play(){
-        
+    public void play(int duration){
+        boredom -= duration * 10;
+        tiredness += duration * 5;
+        if (boredom < 0){
+            boredom = 0;
+        }
+        System.out.println("Jouer avec " + name + " l'a vraiment détendu. Toute cette activité semble l'avoir fatigué");
     }
     
     public void wash(){
