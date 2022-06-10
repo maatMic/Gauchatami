@@ -27,15 +27,15 @@ public class Gauchatami {
     Taste tastes;
     
 
-    public Gauchatami(String name, int id, int hunger, int tiredness, int boredom, int dirt, int health, boolean cryes, Taste tastes) {
+    public Gauchatami(String name, int id, Taste tastes) {
         this.name = name;
         this.id = id;
-        this.hunger = hunger;
-        this.tiredness = tiredness;
-        this.boredom = boredom;
-        this.dirt = dirt;
-        this.health = health;
-        this.cryes = cryes;
+        this.hunger = 0;
+        this.tiredness = 0;
+        this.boredom = 0;
+        this.dirt = 0;
+        this.health = 100;
+        this.cryes = false;
         this.tastes = tastes;
         this.currentState = State.egg;
     }
