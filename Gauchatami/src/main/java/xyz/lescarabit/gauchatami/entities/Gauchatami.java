@@ -27,8 +27,7 @@ public class Gauchatami {
     Taste tastes;
     
 
-    public Gauchatami(String name, int id, Taste tastes) {
-        this.name = name;
+    public Gauchatami(int id, Taste tastes) {
         this.id = id;
         this.hunger = 0;
         this.tiredness = 0;
@@ -92,7 +91,22 @@ public class Gauchatami {
     }
     
     public void evolve(){
+        switch (currentState) {
+            case egg -> {
+                currentState= State.larva;
+                System.out.println("Félicitations! Votre oeuf a éclos!");
+            }
+            case larva -> {
+                currentState= State.atami;
+                System.out.println("Félicitations! " +name+ " a grandi et atteint l'âge adulte.");
+            }
+        }
         
+    }
+    
+    public void giveName(String name){
+        this.name = name;
+        System.out.println(name + " vous ragarde de ses grands yeux ronds ahuris.");
     }
     //////////////
     
