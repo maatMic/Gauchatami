@@ -49,6 +49,10 @@ public class Gauchatami {
             food.stock --;
             return name + " déteste cet aliment, et refuse de le manger. Quel gaspillage!";
         }
+        
+        else if (hunger - food.nutritional_value < 0){
+           puke();
+        }
         food.stock --;
         hunger -= food.nutritional_value;
         tastes.tasteList.put(food.name, tastes.getTasteList().get(food.name) + 1);
@@ -57,7 +61,12 @@ public class Gauchatami {
     //////////////
     
     
-    
+    public String puke(){
+        hunger += 30;
+        tiredness += 15;
+        dirt += 20;
+        return "A trop se gaver, " + name + " s'est rendu malade, et a rendu le contenu de son estomac à vos pieds.";
+    }
     
     public String getName() {
         return name;
