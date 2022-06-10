@@ -80,7 +80,8 @@ public class Gauchatami {
     }
     
     public void die(){
-        
+        currentState = State.dead;
+        System.out.println(name + " a passé l'arme à gauche");
     }
     
     public void evolve(){
