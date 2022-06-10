@@ -51,6 +51,7 @@ public class Gauchatami {
         }
         
         else if (hunger - food.nutritional_value < 0){
+           food.stock --;
            puke();
         }
         food.stock --;
@@ -58,8 +59,6 @@ public class Gauchatami {
         tastes.tasteList.put(food.name, tastes.getTasteList().get(food.name) + 1);
         return name + " se régale, et vous regarde avec des yeux pleins d'amour";
     }
-    //////////////
-    
     
     public String puke(){
         hunger += 30;
@@ -67,6 +66,27 @@ public class Gauchatami {
         dirt += 20;
         return "A trop se gaver, " + name + " s'est rendu malade, et a rendu le contenu de son estomac à vos pieds.";
     }
+    
+    public void play(){
+        
+    }
+    
+    public void wash(){
+        
+    }
+    
+    public void cry(){
+        
+    }
+    
+    public void die(){
+        
+    }
+    
+    public void evolve(){
+        
+    }
+    //////////////
     
     public String getName() {
         return name;
