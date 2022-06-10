@@ -72,8 +72,8 @@ public class Gauchatami {
     }
     
     public void wash(){
-        
         dirt -= getDirt();
+        System.out.println( name + "a été lavé sa saleté est de : " + dirt);
         
     }
     
