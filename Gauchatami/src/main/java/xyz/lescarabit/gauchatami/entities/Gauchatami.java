@@ -73,6 +73,8 @@ public class Gauchatami {
     
     public void wash(){
         
+        dirt -= getDirt();
+        
     }
     
     public void cry(){
