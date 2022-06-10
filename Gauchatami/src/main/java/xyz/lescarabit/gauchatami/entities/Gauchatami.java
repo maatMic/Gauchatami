@@ -83,7 +83,8 @@ public class Gauchatami {
     }
     
     public void cry(){
-        
+        cryes = true;
+        System.out.println( name + "pleure");
     }
     
     public void die(){
