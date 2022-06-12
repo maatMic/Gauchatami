@@ -4,12 +4,17 @@
  */
 package xyz.lescarabit.gauchatami.entities;
 
+import java.util.HashMap;
+
 /**
  *
  * @author matformation
  */
 public class Gauchatami {
-
+    
+    //for development purpose
+    public static Gauchatami gauchatami = new Gauchatami(5);
+    ///////////////////////////////////////////////////////
     String name;
     int id;
 //    int id_proprietaire; à implémenter lors du basculement en mode multi
@@ -24,10 +29,10 @@ public class Gauchatami {
     int health;
     boolean cryes;
     State currentState;
-    Taste tastes;
+    HashMap<String, Integer> tastes;
     
 
-    public Gauchatami(int id, Taste tastes) {
+    public Gauchatami(int id) {
         this.id = id;
         this.hunger = 0;
         this.tiredness = 0;
@@ -35,7 +40,13 @@ public class Gauchatami {
         this.dirt = 0;
         this.health = 100;
         this.cryes = false;
-        this.tastes = tastes;
+        this.tastes = new HashMap<>();
+        tastes.put("sweet", 0);
+        tastes.put("salty", 0);
+        tastes.put("acid", 0);
+        tastes.put("bitter", 0);
+        tastes.put("umami", 0);
+        
         this.currentState = State.egg;
     }
 
@@ -44,7 +55,7 @@ public class Gauchatami {
 
     //////////////
     public String eat(Food food){
-        if (currentState.equals("atami") && tastes.getTasteList().get(food.name) < 33) {
+        if (currentState.equals("atami") && tastes.get(food.name) < 33) {
             food.stock --;
             return name + " déteste cet aliment, et refuse de le manger. Quel gaspillage!";
         }
@@ -55,7 +66,7 @@ public class Gauchatami {
         }
         food.stock --;
         hunger -= food.nutritional_value;
-        tastes.tasteList.put(food.name, tastes.getTasteList().get(food.name) + 1);
+        tastes.put(food.name, tastes.get(food.name) + 1);
         return name + " se régale, et vous regarde avec des yeux pleins d'amour";
     }
     
@@ -175,11 +186,11 @@ public class Gauchatami {
         this.cryes = cryes;
     }
 
-    public Taste getTastes() {
+    public HashMap getTastes() {
         return tastes;
     }
 
-    public void setTastes(Taste tastes) {
+    public void setTastes(HashMap tastes) {
         this.tastes = tastes;
     }
 

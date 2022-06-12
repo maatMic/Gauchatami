@@ -4,7 +4,8 @@
  */
 package xyz.lescarabit.gauchatami.Main;
 
-import xyz.lescarabit.gauchatami.entities.Taste;
+import xyz.lescarabit.gauchatami.entities.AlimentList;
+import xyz.lescarabit.gauchatami.entities.Gauchatami;
 
 /**
  *
@@ -12,11 +13,12 @@ import xyz.lescarabit.gauchatami.entities.Taste;
  */
 public class Main {
     public static void main(String[] args) {
-        Taste test = new Taste();
-        System.out.println(test.getSweet());
-        System.out.println(test.getTasteList().get("sweet"));
-        test.setSweet(15);
-        System.out.println(test.getSweet());
-        System.out.println(test.getTasteList().get("sweet"));
+        Gauchatami.gauchatami.setName("bob");
+        Gauchatami carl = new Gauchatami(1);
+        carl.getTastes().put("salty", 35);
+        System.out.println(Gauchatami.gauchatami.toString());
+        System.out.println(AlimentList.alimentsList.get(0));
+        System.out.println(Gauchatami.gauchatami.getTastes().get("salty"));
+        System.out.println(carl.getTastes().get("salty"));
     }
 }
